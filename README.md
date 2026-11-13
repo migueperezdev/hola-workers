@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hola Workers
 
-## Getting Started
+Ejercicio 2 de la semana 8 de CODE NODE. Aplicación de una sola página creada con Next.js y desplegada en Cloudflare Workers mediante OpenNext.
 
-First, run the development server:
+La página muestra el nombre del autor y la fecha y hora de compilación en horario de España peninsular. La fecha se fija al compilar y se mantiene al recargar la página.
+
+**Autor** · Miguel Ángel Pérez Rodríguez
+
+## Web publicada
+
+[https://hola-workers.migueperezdev.workers.dev/](https://hola-workers.migueperezdev.workers.dev/)
+
+## Desarrollo local
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Vista previa con Wrangler
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run preview
+```
 
-## Learn More
+Abre la dirección que indique la terminal, normalmente `http://127.0.0.1:8787`.
 
-To learn more about Next.js, take a look at the following resources:
+## Despliegue en Cloudflare
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+La primera vez, autoriza Wrangler con `npx wrangler login --device`. Después ejecuta:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run deploy
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+OpenNext compila y empaqueta la aplicación. Wrangler publica el Worker y muestra su dirección pública en la terminal.
